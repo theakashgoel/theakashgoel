@@ -3,8 +3,12 @@ import { MdDeleteForever } from "react-icons/md";
 import { useSelector, useDispatch } from 'react-redux';
 import {removeFromCart} from './redux/action';
 const Cart = () => {
-  const cart = useSelector(state => state.cart);
+  const cart = useSelector(state => state.cart.items);
+  console.log(cart);
   const dispatch = useDispatch();
+  const handleRemoveFromCart = (itemId) => {
+    dispatch(removeFromCart(itemId))
+  }
   return (
     <div>
       
@@ -15,7 +19,7 @@ const Cart = () => {
         {cart.map((item) => (
           <li key={item.id}>
             {item.name} - ${item.price}
-            <button className='add_to_cart' onClick={() => dispatch(removeFromCart(item))}><MdDeleteForever /></button>
+            <button className='add_to_cart' onClick={() => handleRemoveFromCart(item.id)}><MdDeleteForever /></button>
           </li>
         ))}
       </ul>
