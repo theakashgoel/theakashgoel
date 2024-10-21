@@ -58,4 +58,40 @@
   border-radius: 10px;
   background: transparent;
   color: beige;
+  display: flex;
+  align-items: center;
+}
+
+.products{
+  display: grid;
+  grid-template-columns: repeat(3,1fr)
+}
+
+.card{
+  width: 150px;
+    margin: 20px;
+    border-color: beige;
+    border: 5px;
+    border-radius: 5px;
+    background: chocolate;
+    height: auto;
+    max-height: fit-content;
+}
+
+.product_details{
+  padding: 20px;
+}
+
+.cart_list{
+  
+  justify-content: left;
+  position: absolute;
+  right: 100px;
+  top: 70px;
+}
+
+.cart_heading{
+  position: absolute;
+    top: 0px;
+    right: 500px;
 }

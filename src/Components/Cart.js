@@ -10,22 +10,27 @@ const Cart = () => {
     dispatch(removeFromCart(itemId))
   }
   return (
-    <div>
-      
-     { cart &&
-     <>
+    <>
+     <div className='cart_heading'>
       <h2>Shopping Cart</h2>
-      <ul>
+      </div>
+    <div className='cart_list'>
+      <div className='row products'>
         {cart.map((item) => (
-          <li key={item.id}>
-            {item.name} - ${item.price}
-            <button className='add_to_cart' onClick={() => handleRemoveFromCart(item.id)}><MdDeleteForever /></button>
-          </li>
+          <div className='col-lg-4'>
+          <div className='card'>
+              <div className='product_details' key={item.id}>
+                <img src={item.image} alt={item.title}  width='100px' height='100px'/> <br />
+                {item.title} <br />
+                ${item.price} <br />
+                <button className='add_to_cart' onClick={() => handleRemoveFromCart(item.id)}><MdDeleteForever />Remove from cart</button>
+                </div>
+            </div>
+            </div>
         ))}
-      </ul>
-      </>
-      }
+      </div>
     </div>
+    </>
   );
 };
 

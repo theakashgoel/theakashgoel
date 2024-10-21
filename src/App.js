@@ -10,9 +10,14 @@ const App = () => {
 
   return (
     <Provider store={store}>
-    <div className='main'>
+    <div className='main row'>
+      <div className='col-5'>
       <ProductList />
+      </div>
+      <div className='col-2'></div>
+      <div className='col-5'>
       <Cart />
+      </div>
     </div>
     </Provider>
   );

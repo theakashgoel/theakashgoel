@@ -1,28 +1,39 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import { useDispatch } from 'react-redux';
 import {addToCart} from './redux/action';
 
 const ProductList = () => {
-
-  const dispatch = useDispatch();
-  const products = [
-    { id: 1, name: 'Product 1', price: 20 },
-    { id: 2, name: 'Product 2', price: 30 },
-    { id: 3, name: 'Product 3', price: 50 },
-    { id: 4, name: 'Product 4', price: 100 },
-  ];
+const [products, setProducts] = useState([]);
+  const getProducts = async () => {
+    const data= await fetch('https://fakestoreapi.com/products')
+           const products = setProducts(await data.json());
+           return products;
+           }
+           console.log(products);
+           const dispatch = useDispatch();
+           useEffect(() => {
+             getProducts()
+             },[]);
 
   return (
     <div className='product_list'>
       <h2>Product List</h2>
-      <ul>
+      {/* <ul> */}
+      <div className='row products'>
         {products.map(product => (
-          <li className='product_data' key={product.id}>
-            {product.name} - ${product.price}
+          <div className='col-lg-4'>
+      <div className='card'>
+          <div className='product_details' key={product.id}>
+            <img src={product.image} alt={product.title}  width='100px' height='100px'/> <br />
+            {product.title} <br />
+            ${product.price} <br />
             <button className='add_to_cart' onClick={() => dispatch(addToCart(product))}>Add to Cart</button>
-          </li>
+          </div>
+        </div>
+        </div>
         ))}
-      </ul>
+      </div>
+      {/* </ul> */}
     </div>
   );
 };
