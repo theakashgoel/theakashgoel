@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
 }
 
 .App-logo {
@@ -38,12 +39,12 @@
 }
 
 .main {
-  background-color: #282c34;
-  color: bisque;
+  background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
+    color: bisque;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
-  border-radius: 50px;
+  /* border-radius: 50px; */
   height: 100%;
 }
 
@@ -78,8 +79,13 @@
     max-height: fit-content;
 }
 
+.product_list{
+  margin-left: 60px;
+}
+
 .product_details{
   padding: 20px;
+  overflow-wrap: break-word;
 }
 
 .cart_list{
@@ -90,8 +96,8 @@
   top: 70px;
 }
 
-.cart_heading{
+.cart_content{
   position: absolute;
     top: 0px;
-    right: 500px;
+    left: 50%;
 }

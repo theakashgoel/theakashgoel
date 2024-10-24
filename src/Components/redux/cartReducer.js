@@ -8,7 +8,7 @@ switch (action.type) {
         return{...state, items:[...state.items, action.payload]}
     case REMOVE_FROM_CART:
         // let index = state.indexOf(action.payload)
-        return{...state, items:state.items.filter(item => item.id !== action.payload)}
+        return{...state, items:state.items.filter((ele, index) => index!== action.payload)}
     default:
         return state
 }

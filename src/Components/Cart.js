@@ -6,30 +6,28 @@ const Cart = () => {
   const cart = useSelector(state => state.cart.items);
   console.log(cart);
   const dispatch = useDispatch();
-  const handleRemoveFromCart = (itemId) => {
-    dispatch(removeFromCart(itemId))
+  const handleRemoveFromCart = (index) => {
+    dispatch(removeFromCart(index))
   }
   return (
     <>
-     <div className='cart_heading'>
+     <div className='product_list'>
       <h2>Shopping Cart</h2>
-      </div>
-    <div className='cart_list'>
       <div className='row products'>
-        {cart.map((item) => (
+        {cart.map((item, index) => (
           <div className='col-lg-4'>
           <div className='card'>
-              <div className='product_details' key={item.id}>
+              <div className='product_details' key={item.id+'_'+index}>
                 <img src={item.image} alt={item.title}  width='100px' height='100px'/> <br />
                 {item.title} <br />
                 ${item.price} <br />
-                <button className='add_to_cart' onClick={() => handleRemoveFromCart(item.id)}><MdDeleteForever />Remove from cart</button>
+                <button className='add_to_cart' onClick={() => handleRemoveFromCart(index)}><MdDeleteForever />Remove from cart</button>
                 </div>
             </div>
             </div>
         ))}
       </div>
-    </div>
+      </div>
     </>
   );
 };
