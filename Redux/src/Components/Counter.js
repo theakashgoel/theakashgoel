@@ -5,10 +5,12 @@ const Counter = () => {
 
     const handleIncrement = () => {
         setCount(count=>count+1)
+        alert("You increment my value 🤩")
     }
 
     const handleDecrement = () => {
-        setCount(count=>count-1)
+        setCount(count=>count-1 )
+        alert("You decrement my value 😢")
     }
 
     const reset =()=>{
